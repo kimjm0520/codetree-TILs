@@ -6,7 +6,7 @@ public class Main {
         char am = sc.next().charAt(0);
         int ba = sc.nextInt();
         char bm = sc.next().charAt(0);
-        if((aa>=19 && am=="M") || (ba>=19 && bm=="M")){
+        if((aa>=19 && am=='M') || (ba>=19 && bm=='M')){
             System.out.print(1);
         }
         else{
