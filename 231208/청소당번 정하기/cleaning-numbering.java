@@ -7,7 +7,7 @@ public class Main {
         a=0;
         b=0;
         c=0;
-        for(int i=1; i<n ;i++){
+        for(int i=1; i<=n ;i++){
             if(i%12==0){
                 c++;
             }
