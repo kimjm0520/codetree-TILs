@@ -7,12 +7,12 @@ public class Main {
         int n=sc.nextInt();
         if(c=='D'){
             for(int i=n; i>=1 ; i--){
-                System.out.print(i);
+                System.out.print(i+" ");
             }
         }
         else if(c=='A'){
             for(int i=1; i<=n ; i++){
-                System.out.print(i);
+                System.out.print(i+" ");
             }
         }
     }
