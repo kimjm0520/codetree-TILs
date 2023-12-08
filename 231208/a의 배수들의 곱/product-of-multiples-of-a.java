@@ -7,7 +7,7 @@ public class Main {
         int prod=1;
         for(int i=1;i<=b;i++){
             if(i%a==0){
-                prod*=b;
+                prod*=i;
             }
         }
         System.out.print(prod);
