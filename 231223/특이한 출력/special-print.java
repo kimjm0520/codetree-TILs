@@ -5,7 +5,7 @@ public class Main {
         int n=sc.nextInt();
         for(int i=1;i<=n;i++){
             for(int j=1;j<=n;j++){
-                if(i+j==4)
+                if((i+j)%4==0)
                 System.out.println("("+i+", "+j+") ");
                 else
                 System.out.print("("+i+", "+j+") ");
