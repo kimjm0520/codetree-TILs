@@ -6,10 +6,10 @@ public class Main {
         for(int i=a;i<=b;i++){
             cnt=0;
             for(int j=1;j<=i;j++){
-                if(i%j==0);
+                if(i%j==0)
                 cnt++;
             }
-            if(cnt<4)
+            if(cnt==3)
             t++;
         }
         System.out.print(t);
