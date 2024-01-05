@@ -14,6 +14,6 @@ public class Main {
             n=i+1;
         }
         System.out.print(sum+" ");
-        System.out.printf("%.1f",((double)sum/n))
+        System.out.printf("%.1f",((double)sum/n));
     }
 }
