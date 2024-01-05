@@ -13,6 +13,7 @@ public class Main {
             sum+=num[i];
             n=i+1;
         }
-        System.out.print(sum+" "+((double)sum/n));
+        System.out.print(sum+" ");
+        System.out.printf("%.1f",((double)sum/n))
     }
 }
