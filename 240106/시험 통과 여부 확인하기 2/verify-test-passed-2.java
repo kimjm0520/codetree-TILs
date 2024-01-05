@@ -5,7 +5,7 @@ public class Main {
         int n=sc.nextInt();
         int sum=0,cnt=0;
         for(int i=0;i<n;i++){
-            int[] num=new int[4];
+            int[] num=new int[5];
             sum=0;
             for(int j=0;j<4;j++){
                 num[i]=sc.nextInt();
