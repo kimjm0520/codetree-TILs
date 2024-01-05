@@ -5,11 +5,11 @@ public class Main {
         int n=sc.nextInt();
         int sum=0,cnt=0;
         for(int i=0;i<n;i++){
-            int[] num=new int[5];
+            int[] num=new int[4];
             sum=0;
             for(int j=0;j<4;j++){
-                num[i]=sc.nextInt();
-                sum+=num[i];
+                num[j]=sc.nextInt();
+                sum+=num[j];
             }
             if((double)sum/4 >= 60){
                 System.out.println("pass");
