@@ -7,7 +7,9 @@ for i in num:
         even+=1
     else:
         odd+=1
-if even>=odd:
+if even>odd:
+    print(odd*2+1)
+elif even==odd:
     print(odd*2)
 else:
     odd-=even
