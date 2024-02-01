@@ -8,7 +8,7 @@ for i in range(n):
         break
     tmp=num[0]
     del num[0]
-    for i in range(1,n-1):
+    for i in range(n-1):
         if tmp==1:
             if num[i]==n:
                 num.insert(i+1,tmp)
