@@ -17,7 +17,7 @@ def pos(x, y):
 def can(x,y):
     if not pos(x,y):
         return False
-    if visited[x][y] or num[x][y] == 0:
+    if visited[y][x] or num[y][x] == 0:
         return False
     return True
 
@@ -29,7 +29,7 @@ def grid_dfs(x,y):
         new_x, new_y = x+dx[i], y+dy[i]
 
         if can(new_x, new_y):
-            visited[new_x][new_y]=1
+            visited[new_y][new_x]=1
             grid_dfs(new_x,new_y)
     a=justice(x,y)
     p.append(a)
