@@ -4,8 +4,6 @@ for _ in range(n):
     a=list(map(int,input().split()))
     num.append(a)
 visited=[[0 for _ in range(m)] for _ in range(n)]
-dx=[1,0]
-dy=[0,1]
 
 def justice(x,y):
     if x == (m-1) and y == (n-1):
@@ -23,13 +21,14 @@ def can(x,y):
     return True
 
 def grid_dfs(x,y):
-    global dx,dy
-    for dx,dy in zip(dx,dy):
-        new_x, new_y = x+dx, y+dy
+    dx=[1,0]
+    dy=[0,1]
+    for i in range(2):
+        new_x, new_y = x+dx[i], y+dy[i]
 
-        if can(x, y):
-            visited[x][y]=1
-            grid_dfs(x,y)
+        if can(new_x, new_y):
+            visited[new_x][new_y]=1
+            grid_dfs(new_x,new_y)
     return justice(x,y)
 
 visited[0][0]=1
