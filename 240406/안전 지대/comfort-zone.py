@@ -3,7 +3,7 @@ graph=[]
 for i in range(n):
     a=list(map(int,input().split()))
     graph.append(a)
-mk=0
+mk=1
 mg=0
 
 def can(x,y):
