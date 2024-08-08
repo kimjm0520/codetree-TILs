@@ -14,11 +14,14 @@ for i in range(n):
             if cnt_max<cnt:
                 cnt_max=cnt
             cnt=1
+    if cnt_max<cnt:
+        cnt_max=cnt
     if cnt_max>=m:
         answer+=1
 
 for j in range(n):
     cnt=1
+    cnt_max=1
     for i in range(1,n):
         if graph[i-1][j]==graph[i][j]:
             cnt+=1
@@ -26,6 +29,8 @@ for j in range(n):
             if cnt_max<cnt:
                 cnt_max=cnt
             cnt=1
+    if cnt_max<cnt:
+        cnt_max=cnt
     if cnt_max>=m:
         answer+=1
 print(answer)
