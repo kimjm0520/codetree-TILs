@@ -25,7 +25,7 @@ for j in range(n):
     for i in range(1,n):
         if graph[i-1][j]==graph[i][j]:
             cnt+=1
-        if graph[i-1][j]==graph[i][j]:
+        if graph[i-1][j]!=graph[i][j]:
             cnt=1
         if cnt_max<cnt:
             cnt_max=cnt
