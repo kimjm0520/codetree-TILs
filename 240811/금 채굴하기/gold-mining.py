@@ -15,11 +15,11 @@ def can(c1,r1):
     return True
 
 def run(c1,r1):
-    b=-k
+    b=-t
     cnt=0
-    for i in range(c1-k,c1+k+1):
+    for i in range(c1-t,c1+t+1):
         a=abs(b)
-        for j in range(r1-k+a,r1+k+1-a):
+        for j in range(r1-t+a,r1+t+1-a):
             if can(i,j):
                 cnt+=graph[i][j]
         b+=1
@@ -27,10 +27,11 @@ def run(c1,r1):
 
 cnt_max=0
 
-for i in range(n):
-    for j in range(n):
-        cnt=run(i,j)
-        if cnt_max<cnt:
-            cnt_max=cnt
+for t in range(k):
+    for i in range(n):
+        for j in range(n):
+            cnt=run(i,j)
+            if cnt_max<cnt and (t*t+(t+1)*(t+1) <= m*cnt): 
+                cnt_max=cnt
 
 print(cnt_max)
