@@ -14,7 +14,7 @@ def can(c1,r1):
         return False
     return True
 
-def run(c1,r1):
+def run(c1,r1,t):
     b=-t
     cnt=0
     for i in range(c1-t,c1+t+1):
@@ -30,7 +30,7 @@ cnt_max=0
 for t in range(k):
     for i in range(n):
         for j in range(n):
-            cnt=run(i,j)
+            cnt=run(i,j,t)
             if cnt_max<cnt and (t*t+(t+1)*(t+1) <= m*cnt): 
                 cnt_max=cnt
 
