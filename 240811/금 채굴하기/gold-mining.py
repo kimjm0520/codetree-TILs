@@ -5,7 +5,7 @@ for i in range(n):
     coin+=graph[i].count(1)
 
 k=0
-while k**2+k <= (m*coin)//2:
+while k**2+k <= (m*coin-1)//2:
     k+=1
 k-=1
 
