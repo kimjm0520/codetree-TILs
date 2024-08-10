@@ -27,11 +27,11 @@ def run(c1,r1,t):
 
 cnt_max=0
 
-for t in range(k):
+for t in range(k+1):
     for i in range(n):
         for j in range(n):
             cnt=run(i,j,t)
-            if cnt_max<cnt and (t*t+(t+1)*(t+1) <= m*cnt): 
+            if cnt_max<cnt and (t*t+(t+1)*(t+1) <= m*cnt):
                 cnt_max=cnt
 
 print(cnt_max)
