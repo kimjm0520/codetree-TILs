@@ -6,55 +6,72 @@ def can(c,r):
         return False
     return True
 
-def case1(c,r,ans):
-    cnt=0
+def run1(c,r):
+    cnt1=0
     p=False
     while can(c,r):
-        ans+=graph[c][r]
         c-=1
         r+=1
-        cnt+=1
-    while (not p) and cnt>1:
+        cnt1+=1
+    while (not p) and cnt1>1:
         c+=1
         r-=1
-        cnt-=1
-        ans-=graph[c][r]
+        cnt1-=1
         if can(c-1,r-1):
             p=True
-            return c,r,ans,p,cnt
-
-    return c,r,ans,p,cnt
+            return p,cnt1
+    return p,cnt1
         
-def case2(c,r,ans):
-    cnt=0
+def run2(c,r):
+    cnt2=0
     p=False
     while can(c,r):
+        c-=1
+        r-=1
+        cnt2+=1
+    while (not p) and cnt2>1:
+        c+=1
+        r+=1
+        cnt2-=1
+        if can(c+1,r-1):
+            p=True
+            return p,cnt2       
+    return p,cnt2
+
+def case1(c,r,ans,cnt1):
+    p=False
+    while can(c,r) and cnt1:
+        ans+=graph[c][r]
+        c-=1
+        r+=1
+        cnt1-=1
+    if can(c-1,r-1):
+        p=True
+        return c,r,ans,p       
+    return c,r,ans,p
+
+def case2(c,r,ans,cnt2):
+    p=False
+    while can(c,r) and cnt2:
         ans+=graph[c][r]
         c-=1
         r-=1
-        cnt+=1
-    while (not p) and cnt>1:
-        c+=1
-        r+=1
-        cnt-=1
-        ans-=graph[c][r]
-        if can(c+1,r-1):
-            p=True
-            return c,r,ans,p
-        
+        cnt2-=1
+    if can(c+1,r-1):
+        p=True
+        return c,r,ans,p       
     return c,r,ans,p
 
-def case3(c,r,ans,cnt):
+def case3(c,r,ans,cnt1):
     p=False
-    while can(c,r) and cnt:
+    while can(c,r) and cnt1:
         ans+=graph[c][r]
         c+=1
         r-=1
-        cnt-=1
+        cnt1-=1
     if can(c+1,r+1):
         p=True
-        return c,r,ans,p
-        
+        return c,r,ans,p       
     return c,r,ans,p
 
 def case4(c,r,c1,r1,ans):
@@ -68,7 +85,7 @@ def case4(c,r,c1,r1,ans):
     return c,r,ans,p   
 
 
-def qua(c,r):
+def qua(c,r,cnt1,cnt2):
     p=True
     c1,r1=c,r
     ans=0
@@ -76,13 +93,13 @@ def qua(c,r):
         if not p:
             return 0
         if i==1:
-            c,r,ans,p,cnt=case1(c,r,ans)
+            c,r,ans,p=case1(c,r,ans,cnt1)
             
         elif i==2:
-            c,r,ans,p=case2(c,r,ans)
+            c,r,ans,p=case2(c,r,ans,cnt2)
             
         elif i==3:
-            c,r,ans,p=case3(c,r,ans,cnt)
+            c,r,ans,p=case3(c,r,ans,cnt1)
             
         elif i==4:
             c,r,ans,p=case4(c,r,c1,r1,ans)
@@ -95,7 +112,15 @@ ans_max=0
 
 for i in range(n):
     for j in range(n):
-        ans=qua(i,j)
-        if ans_max<ans:
-            ans_max=ans
+        p1,cnt1=run1(i,j)
+        if p1:
+            for col in range(1,cnt1+1):
+                p2,cnt2=run2(i-col,j+col)
+                if p2:
+                    for row in range(1,cnt2+1):
+                        ans=qua(i,j,col,row)
+                        if ans_max<ans:
+                            ans_max=ans
+
+        
 print(ans_max)
