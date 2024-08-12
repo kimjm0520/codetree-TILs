@@ -21,9 +21,9 @@ def case1(c,r,ans):
         ans-=graph[c][r]
         if can(c-1,r-1):
             p=True
-            return c,r,ans,p
+            return c,r,ans,p,cnt
 
-    return c,r,ans,p
+    return c,r,ans,p,cnt
         
 def case2(c,r,ans):
     cnt=0
@@ -44,22 +44,16 @@ def case2(c,r,ans):
         
     return c,r,ans,p
 
-def case3(c,r,ans):
-    cnt=0
+def case3(c,r,ans,cnt):
     p=False
-    while can(c,r):
+    while can(c,r) and cnt:
         ans+=graph[c][r]
         c+=1
         r-=1
-        cnt+=1
-    while (not p) and cnt>1:
-        c-=1
-        r+=1
         cnt-=1
-        ans-=graph[c][r]
-        if can(c+1,r+1):
-            p=True
-            return c,r,ans,p
+    if can(c+1,r+1):
+        p=True
+        return c,r,ans,p
         
     return c,r,ans,p
 
@@ -82,13 +76,13 @@ def qua(c,r):
         if not p:
             return 0
         if i==1:
-            c,r,ans,p=case1(c,r,ans)
+            c,r,ans,p,cnt=case1(c,r,ans)
             
         elif i==2:
             c,r,ans,p=case2(c,r,ans)
             
         elif i==3:
-            c,r,ans,p=case3(c,r,ans)
+            c,r,ans,p=case3(c,r,ans,cnt)
             
         elif i==4:
             c,r,ans,p=case4(c,r,c1,r1,ans)
