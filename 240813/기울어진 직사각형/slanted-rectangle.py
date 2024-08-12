@@ -14,15 +14,15 @@ def case1(c,r,ans):
         c-=1
         r+=1
         cnt+=1
-    ans-=graph[c+1][r-1]
-    while (not p) and cnt:
-        if can(c-1,r-1):
-            p=True
+    while (not p) and cnt>1:
         c+=1
         r-=1
         cnt-=1
-    if p:
-        return c,r,ans,p
+        ans-=graph[c][r]
+        if can(c-1,r-1):
+            p=True
+            return c,r,ans,p
+
     return c,r,ans,p
         
 def case2(c,r,ans):
@@ -33,15 +33,15 @@ def case2(c,r,ans):
         c-=1
         r-=1
         cnt+=1
-    ans-=graph[c+1][r+1]
-    while (not p) and cnt:
-        if can(c+1,r-1):
-            p=True
+    while (not p) and cnt>1:
         c+=1
         r+=1
         cnt-=1
-    if p:
-        return c,r,ans,p
+        ans-=graph[c][r]
+        if can(c+1,r-1):
+            p=True
+            return c,r,ans,p
+        
     return c,r,ans,p
 
 def case3(c,r,ans):
@@ -52,15 +52,15 @@ def case3(c,r,ans):
         c+=1
         r-=1
         cnt+=1
-    ans-=graph[c-1][r+1]
-    while (not p) and cnt:
-        if can(c+1,r+1):
-            p=True
+    while (not p) and cnt>1:
         c-=1
         r+=1
         cnt-=1
-    if p:
-        return c,r,ans,p
+        ans-=graph[c][r]
+        if can(c+1,r+1):
+            p=True
+            return c,r,ans,p
+        
     return c,r,ans,p
 
 def case4(c,r,c1,r1,ans):
@@ -69,11 +69,8 @@ def case4(c,r,c1,r1,ans):
         ans+=graph[c][r]
         c+=1
         r+=1
-    ans-=graph[c-1][r-1]
-    if can(c,r) and c==c1 and r==r1:
+    if c==c1 and r==r1:
         p=True
-    if p:
-        return c,r,ans,p
     return c,r,ans,p   
 
 
@@ -86,12 +83,16 @@ def qua(c,r):
             return 0
         if i==1:
             c,r,ans,p=case1(c,r,ans)
+            
         elif i==2:
             c,r,ans,p=case2(c,r,ans)
+            
         elif i==3:
             c,r,ans,p=case3(c,r,ans)
+            
         elif i==4:
             c,r,ans,p=case4(c,r,c1,r1,ans)
+            
     if not p:
         return 0
     return ans
