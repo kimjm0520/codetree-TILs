@@ -2,11 +2,6 @@ n,m=map(int,input().split())
 graph=[list(map(int,input().split())) for _ in range(n)]
 ans=-1
 
-def can(c,r):
-    if c<0 or c>=n or r<0 or r>=m:
-        return False
-    return True
-
 def run(c,r,cnt_max):
     cnt=0
     for i in range(c,n):
