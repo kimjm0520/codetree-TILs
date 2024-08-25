@@ -47,10 +47,9 @@ def cange(r1,c1,r2,c2):
             new_graph[i][j]=average(i,j)
     return new_graph
 
-r1,c1,r2,c2=map(int,input().split())
-r1,c1,r2,c2=r1-1,c1-1,r2-1,c2-1
-
 for i in range(q):
+    r1,c1,r2,c2=map(int,input().split())
+    r1,c1,r2,c2=r1-1,c1-1,r2-1,c2-1
     spin(r1,c1,r2,c2)
     graph=cange(r1,c1,r2,c2)
 
