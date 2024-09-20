@@ -6,21 +6,21 @@ def boom(m):
     cnt=1
     sign=0
     for i in range(1,len(bomb)):
-        if cnt==m:
+        if pos==bomb[i]:
+            cnt+=1
+        elif pos!=bomb[i] and cnt>=m:
             sign=1
             for j in range(cnt,0,-1):
                 bomb[i-j]=0
             pos=bomb[i]
             cnt=1
-        elif pos==bomb[i]:
-            cnt+=1
         else:
             pos=bomb[i]
             cnt=1
-    if cnt==m:
+    if cnt>=m:
         sign=1
-        for j in range(cnt):
-            bomb[(len(bomb)-1)-j]=0
+        for j in range(1,cnt+1):
+            bomb[-j]=0
     return sign
         
 
