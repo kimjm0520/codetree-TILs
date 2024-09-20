@@ -19,7 +19,7 @@ def boom(m):
             cnt=1
     if cnt==m:
         sign=1
-        for j in range(cnt,0,-1):
+        for j in range(cnt):
             bomb[i-j]=0
     return sign
         
